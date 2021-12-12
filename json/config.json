@@ -1,0 +1,10 @@
+{
+    "token": "Token",
+    "prefix": "!",
+    "mongooseConnectionString": "Mongo Stirng here",
+    "GlobalSlashCommands": false,
+    "SlashGuild": "Yor Server ID here",
+    "owners": "Your ID here",
+    "voice_log_console": true,
+    "check_all_channels_Interval_in_seconds": 10
+}
