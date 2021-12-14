@@ -10,4 +10,4 @@ shards.on('shardCreate', shard => {
     console.log(`[${new Date().toString().split(" ", 5).join(" ")}] Launched shard #${shard.id}`);
 })
 
-shards.spawn(shards.totalShards, 10000)
+shards.spawn(shards.totalShards, 1000)

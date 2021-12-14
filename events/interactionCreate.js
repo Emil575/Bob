@@ -15,6 +15,7 @@ client.on('interactionCreate', async (interaction) => {
     LastMember: false,
     LastLeaver: false,
     Links: true,
+    ReadAntiNuke: [],
     BlacklistUser: [],
     BlacklistGuild: [],
     BlacklistedWords: [],
@@ -25,11 +26,228 @@ client.on('interactionCreate', async (interaction) => {
       Text: false
     },
     Logs:{
+      Enable: false,
       Channel: false,
       WebHookId: false,
       WebHookToken: false
     },
   })
+  client.Anti_Nuke_System.ensure(interaction.guild.id, {
+    all: {
+        enabled: false,
+        logger: "no",
+        whitelisted: {
+            roles: [],
+            users: []
+        },
+        showwhitelistlog: true,
+        quarantine: false,
+    },
+    antibot: {
+        enabled: true,
+        whitelisted: {
+            roles: [],
+            users: []
+        },
+        punishment: {
+            bot: {
+                kick: true,
+                ban: false,
+            },
+            member: {
+                removeroles: {
+                    neededdaycount: 1, //he is allowed to add 1 Bot / Day
+                    neededweekcount: 4, //he is allowed to add 4 Bots / Week
+                    neededmonthcount: 10, //he is allowed to add 10 Bot / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to add infinite Bots for all time
+                    enabled: true
+                },
+                kick: {
+                    neededdaycount: 2, //he is allowed to add 2 Bot / Day
+                    neededweekcount: 7, //he is allowed to add 5 Bots / Week
+                    neededmonthcount: 20, //he is allowed to add 11 Bot / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to add infinite Bots for all time
+                    enabled: true
+                },
+                ban: {
+                    neededdaycount: 4, //he is allowed to add 3 Bot / Day
+                    neededweekcount: 10, //he is allowed to add 6 Bots / Week
+                    neededmonthcount: 25, //he is allowed to add 12 Bot / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to add infinite Bots for all time
+                    enabled: true
+                },
+            }
+        },
+    },
+    //Anti Kick & Ban
+    antideleteuser: {
+        enabled: true,
+        whitelisted: {
+            roles: [],
+            users: []
+        },
+        punishment: {
+            member: {
+                removeroles: {
+                    neededdaycount: 1, //he is allowed to do it 1 / Day
+                    neededweekcount: 4, //he is allowed to do it 4 / Week
+                    neededmonthcount: 10, //he is allowed to do it 10 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                kick: {
+                    neededdaycount: 2, //he is allowed to to do it 2 / Day
+                    neededweekcount: 7, //he is allowed to to do it 5 / Week
+                    neededmonthcount: 20, //he is allowed to to do it 11 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                ban: {
+                    neededdaycount: 4, //he is allowed to to do it 3 / Day
+                    neededweekcount: 10, //he is allowed to to do it 6 / Week
+                    neededmonthcount: 25, //he is allowed to to do it 12 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+            }
+        },
+    },
+    //ANTI CREATE ROLE
+    anticreaterole: {
+        enabled: true,
+        whitelisted: {
+            roles: [],
+            users: []
+        },
+        punishment: {
+            removeaddedrole: true,
+            member: {
+                removeroles: {
+                    neededdaycount: 1, //he is allowed to do it 1 / Day
+                    neededweekcount: 4, //he is allowed to do it 4 / Week
+                    neededmonthcount: 10, //he is allowed to do it 10 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                kick: {
+                    neededdaycount: 2, //he is allowed to to do it 2 / Day
+                    neededweekcount: 7, //he is allowed to to do it 5 / Week
+                    neededmonthcount: 20, //he is allowed to to do it 11 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                ban: {
+                    neededdaycount: 4, //he is allowed to to do it 3 / Day
+                    neededweekcount: 10, //he is allowed to to do it 6 / Week
+                    neededmonthcount: 25, //he is allowed to to do it 12 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+            }
+        },
+    },
+    //Anti DELETE Role
+    antideleterole: {
+        enabled: true,
+        whitelisted: {
+            roles: [],
+            users: []
+        },
+        punishment: {
+            readdrole: true,
+            member: {
+                removeroles: {
+                    neededdaycount: 1, //he is allowed to do it 1 / Day
+                    neededweekcount: 4, //he is allowed to do it 4 / Week
+                    neededmonthcount: 10, //he is allowed to do it 10 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                kick: {
+                    neededdaycount: 2, //he is allowed to to do it 2 / Day
+                    neededweekcount: 7, //he is allowed to to do it 5 / Week
+                    neededmonthcount: 20, //he is allowed to to do it 11 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                ban: {
+                    neededdaycount: 4, //he is allowed to to do it 3 / Day
+                    neededweekcount: 10, //he is allowed to to do it 6 / Week
+                    neededmonthcount: 25, //he is allowed to to do it 12 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+            }
+        },
+    },
+    //ANTI DELETE CHANNEL
+    antichanneldelete: {
+        enabled: true,
+        whitelisted: {
+            roles: [],
+            users: []
+        },
+        punishment: {
+            member: {
+                removeroles: {
+                    neededdaycount: 1, //he is allowed to do it 1 / Day
+                    neededweekcount: 4, //he is allowed to do it 4 / Week
+                    neededmonthcount: 10, //he is allowed to do it 10 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                kick: {
+                    neededdaycount: 2, //he is allowed to to do it 2 / Day
+                    neededweekcount: 7, //he is allowed to to do it 5 / Week
+                    neededmonthcount: 20, //he is allowed to to do it 11 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                ban: {
+                    neededdaycount: 4, //he is allowed to to do it 3 / Day
+                    neededweekcount: 10, //he is allowed to to do it 6 / Week
+                    neededmonthcount: 25, //he is allowed to to do it 12 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+            }
+        },
+    },
+    //ANTI CREATE CHANNEL
+    antichannelcreate: {
+        enabled: true,
+        whitelisted: {
+            roles: [],
+            users: []
+        },
+        punishment: {
+            deletecreatedchannel: true,
+            member: {
+                removeroles: {
+                    neededdaycount: 1, //he is allowed to do it 1 / Day
+                    neededweekcount: 4, //he is allowed to do it 4 / Week
+                    neededmonthcount: 10, //he is allowed to do it 10 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                kick: {
+                    neededdaycount: 2, //he is allowed to to do it 2 / Day
+                    neededweekcount: 7, //he is allowed to to do it 5 / Week
+                    neededmonthcount: 20, //he is allowed to to do it 11 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+                ban: {
+                    neededdaycount: 4, //he is allowed to to do it 3 / Day
+                    neededweekcount: 10, //he is allowed to to do it 6 / Week
+                    neededmonthcount: 25, //he is allowed to to do it 12 / Month
+                    noeededalltimecount: 0, //0 means that he is allowed to do it infinite for all time
+                    enabled: true
+                },
+            }
+        },
+    },
+})
 
   const GuildSettings = client.bob.get(interaction.guild.id)
   const {

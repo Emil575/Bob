@@ -48,11 +48,16 @@ client.jointocreatemap = new Enmap({
   name: "settings",
   dataDir: './Database/jointocreate'
 });
+client.Anti_Nuke_System = new Enmap({
+  name: "antinuke",
+  dataDir: './Database/antinuke'
+})
 console.log(client.bob);
+console.log(client.Anti_Nuke_System)
 
 require(`./utils/joinToCreate`)(client)
-mongo.connect('mongodb+srv://Emil_575:Emil_575@opal.7w458.mongodb.net/MainBot')
 const config = require('./json/config.json');
+mongo.connect(config.mongooseConnectionString)
 const prefix = config.prefix;
 const token = config.token;
 // Global Variables
