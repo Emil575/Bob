@@ -25,7 +25,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
         adminroles: []
     }, "ticketsystem")
     let ticket = client.setups.get(reaction.message.guild.id, "ticketsystem");
-    if (reaction.message.guild.id === ticket.guild.id && reaction.message.id === ticket.messageid) {
+    if (reaction.message.guild.id === ticket.guildid && reaction.message.id === ticket.messageid) {
         if (!ticket.enabled) return user.send({
             embeds: [disabled]
         }).catch(e => console.log("TICKET:".underline.red + " :: " + e.stack.toString().red));
@@ -38,9 +38,9 @@ client.on('messageReactionAdd', async (reaction, user) => {
             rObj[obj.name] = obj.id;
             return rObj;
         });
-        for (const data of allchannels)
-            if (Object.keys(data).toString().toLowerCase() === channelname.substring(0, 31).toLowerCase());
-        alreadyticket = Object.values(data)
+        for(const data of allchannels)
+        if(Object.keys(data).toString().toLowerCase() === channelname.substr(0,31).toLowerCase())
+            alreadyticket = Object.values(data)
 
         if (alreadyticket)
             return user.send({
@@ -85,14 +85,16 @@ client.on('messageReactionAdd', async (reaction, user) => {
                 })
                 if (message.channel.parentId === ticket.parentId) {
                     if (!message.member.roles.cache.some(r => ticket.adminroles.includes(r.id)) && !message.member.permissions.has('ADMINISTRATOR'))
-                        return message.reply({
+                        return message.channel.send({
                             content: "You are not allowed to close this Ticket!"
                         }).catch(error => console.log(error));
                     if (!message.channel.topic.includes("ticket")) return console.log("NOT A TICKET");
                     let userid = message.channel.topic.slice("ticket-".length);
                     try {
                         let member = message.guild.members.cache.get(userid);
-                        member.send(`Your ticket got closed by: \`${member.user.tag}\`! Here is a Transcript:`).catch(error => console.log(error)).catch(e => console.log("TICKET:".underline.red + " :: " + e.stack.toString().red));
+                        member.send({
+                            content: `Your ticket got closed by: \`${member.user.tag}\`! Here is a Transcript:`
+                        }).catch(error => console.log(error)).catch(e => console.log("TICKET:".underline.red + " :: " + e.stack.toString().red));
                     } catch (error) {
 
                     }

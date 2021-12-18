@@ -56,6 +56,10 @@ client.setups = new Enmap({
   name: 'setups',
   dataDir: './Database/setups'
 })
+client.points = new Enmap({ 
+  name: "points", 
+  dataDir: "./Database/ranking"
+}); 
 
 require(`./utils/joinToCreate`)(client)
 const config = require('./json/config.json');
