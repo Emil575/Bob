@@ -33,27 +33,29 @@ client.bob = new Enmap({
   dataDir: './Database/bob'
 });
 client.settings = new Enmap({
-  name: 'settings',
+  name: 'Settings',
   dataDir: './Database/data1'
 })
 client.settings2 = new Enmap({
-  name: 'settings2',
+  name: 'Settings2',
   dataDir: './Database/data2'
 })
 client.settings3 = new Enmap({
-  name: 'settings3',
+  name: 'Settings3',
   dataDir: './Database/data3'
 })
 client.jointocreatemap = new Enmap({
-  name: "settings",
+  name: "Settings",
   dataDir: './Database/jointocreate'
 });
 client.Anti_Nuke_System = new Enmap({
-  name: "antinuke",
+  name: "Antinuke",
   dataDir: './Database/antinuke'
 })
-console.log(client.bob);
-console.log(client.Anti_Nuke_System)
+client.setups = new Enmap({
+  name: 'setups',
+  dataDir: './Database/setups'
+})
 
 require(`./utils/joinToCreate`)(client)
 const config = require('./json/config.json');
@@ -75,3 +77,12 @@ client.categories = fs.readdirSync('./commands/');
 });
 
 client.login(token);
+/**
+ * @INFO
+ * Bot Coded by EmiL#8665
+ * @INFO
+ * Code from Emil Development
+ * @INFO
+ * Please mention him / Emil Development, when using this Code!
+ * @INFO
+ */

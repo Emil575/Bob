@@ -1,10 +1,11 @@
 {
-    "token": "OTE0ODIwNzQ4MTQ3ODQzMTAz.YaSnNg.ZCcY3WN4twlFTPW5t0FY25VsfwI",
+    "token": "Your Token here",
     "prefix": "!",
-    "mongooseConnectionString": "mongodb+srv://Emil_575:Emil_575@opal.7w458.mongodb.net/MainBot",
+    "mongooseConnectionString": "Your String her",
     "GlobalSlashCommands": false,
-    "SlashGuild": "838496690075729920",
-    "owners": "623345279390973982",
+    "SlashGuild": "Your Guild id here",
+    "owners": "Your Id here",
     "voice_log_console": true,
-    "check_all_channels_Interval_in_seconds": 10
+    "check_all_channels_Interval_in_seconds": 10,
+    "DbLog": false
 }

@@ -114,3 +114,12 @@ module.exports = {
 		});
     },
 };
+/**
+ * @INFO
+ * Bot Coded by EmiL#8665
+ * @INFO
+ * Code from Reconlx
+ * @INFO
+ * Please mention him / Reconlx, when using this Code!
+ * @INFO
+ */

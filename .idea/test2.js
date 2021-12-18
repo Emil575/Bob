@@ -8,7 +8,7 @@ const {
 } = require('discord.js');
 
 module.exports = {
-    name: 'setup-antinuke',
+    name: 'NotUSE',
     description: 'setup the antinuke settings',
     type: 'CHAT_INPUT',
     userperm: [],

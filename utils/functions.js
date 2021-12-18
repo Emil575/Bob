@@ -101,3 +101,12 @@ function create_join_to_create_Channel(client, user, type) {
 module.exports.databasing = databasing;
 module.exports.check_voice_channels = check_voice_channels;
 module.exports.create_join_to_create_Channel = create_join_to_create_Channel;
+/**
+ * @INFO
+ * Bot Coded by EmiL#8665 | https://discord.gg/FQGXbypRf8
+ * @INFO
+ * Code from Milrato Development | https://milrato.eu
+ * @INFO
+ * Please mention him / Milrato Development, when using this Code!
+ * @INFO
+ */

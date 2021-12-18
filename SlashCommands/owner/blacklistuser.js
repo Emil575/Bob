@@ -57,3 +57,12 @@ module.exports = {
         }
     },
 };
+/**
+ * @INFO
+ * Bot Coded by EmiL#8665
+ * @INFO
+ * Code from Emil Development
+ * @INFO
+ * Please mention him / Emil Development, when using this Code!
+ * @INFO
+ */

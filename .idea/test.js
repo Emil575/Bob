@@ -1,7 +1,7 @@
 const { Client, CommandInteraction, MessageSelectMenu, MessageActionRow, InteractionCollector, MessageComponentInteraction, } = require('discord.js');
 
 module.exports = {
-    name: 'test',
+    name: 'NOUSE',
     description: 'test',
     type: 'CHAT_INPUT',
     userperm: [],
